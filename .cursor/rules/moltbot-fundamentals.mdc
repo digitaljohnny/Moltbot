@@ -1,0 +1,95 @@
+---
+description: Fundamental Moltbot/Clawdbot project knowledge for quick agent orientation
+alwaysApply: true
+---
+
+# Moltbot/Clawdbot Project Fundamentals
+
+## Key Terminology
+
+- **CLI Command**: Use `clawdbot` (NOT `moltbot`) - the binary is named `clawdbot`
+- **Moltbot vs Clawdbot**: "Moltbot" is the project name; "Clawdbot" is the actual CLI tool name
+- **Gateway**: The main service that runs the Control UI and manages connections
+- **Control UI**: Web interface accessible at `http://127.0.0.1:18789/` (default port)
+
+## Docker Setup
+
+- **Container**: `moltbot-setup` running image `moltbot-img:latest`
+- **Port Mapping**: `127.0.0.1:18789:18789` (host loopback to container)
+- **Gateway as PID1**: Container runs `clawdbot gateway --port 18789 --bind lan` as main process
+- **Config Location**: `/root/.clawdbot/clawdbot.json` inside container
+- **Workspace**: `/root/clawd` (agent workspace directory)
+
+## Configuration Structure
+
+Key config sections in `clawdbot.json`:
+
+- **`gateway`**: Port, bind address, auth mode (token), mode (local)
+- **`channels`**: Telegram, iMessage, etc. - enable/disable message channels
+- **`plugins`**: Plugin management (imessage, telegram, etc.)
+- **`skills`**: Skill management (imsg, etc.)
+- **`agents`**: Agent defaults (model, workspace, concurrency)
+- **`hooks`**: Internal hooks (session-memory, command-logger)
+
+## Important Configuration Notes
+
+- **Gateway Binding**: Use `"bind": "lan"` (NOT `"loopback"`) for Docker port publishing
+- **iMessage**: Disabled by default (`channels.imessage.enabled: false`, `plugins.entries.imessage.enabled: false`, `skills.entries.imsg.enabled: false`)
+- **Telegram**: Enabled with bot token in `channels.telegram.botToken`
+- **Gateway Auth**: Token-based (`gateway.auth.mode: "token"`)
+
+## Common Operations
+
+### Check Status
+```bash
+docker exec moltbot-setup clawdbot gateway status
+docker exec moltbot-setup ps aux | grep clawdbot
+```
+
+### View Logs
+```bash
+docker logs moltbot-setup
+docker exec moltbot-setup clawdbot logs
+```
+
+### Device Pairing
+```bash
+docker exec moltbot-setup clawdbot devices list
+docker exec moltbot-setup clawdbot devices approve <request-id>
+```
+
+### Config Management
+```bash
+docker exec moltbot-setup clawdbot config get <path>
+docker exec moltbot-setup clawdbot config set <path> <value>
+```
+
+### Restart Gateway
+```bash
+docker restart moltbot-setup
+# Or inside container:
+docker exec moltbot-setup clawdbot gateway restart
+```
+
+## Architecture Concepts
+
+- **Gateway**: Central service managing WebSocket connections, HTTP server, and agent coordination
+- **Channels**: Message input/output (Telegram, iMessage, webchat)
+- **Agents**: AI agents with models (default: `openai/gpt-5.2`)
+- **Plugins**: Extend functionality (imessage provider, telegram provider)
+- **Skills**: Installable capabilities (imsg skill for iMessage)
+- **Hooks**: Event handlers (session-memory, command-logger)
+
+## Troubleshooting
+
+- **Empty reply from server**: Gateway not running or not listening on correct interface
+- **Pairing required**: Device needs approval via `clawdbot devices approve`
+- **iMessage errors**: Ensure all iMessage configs are disabled if not using macOS host
+- **Port not accessible**: Verify `gateway.bind` is set to `"lan"` not `"loopback"`
+
+## Security Notes
+
+- Gateway uses token-based authentication
+- Device pairing required for Control UI access
+- Tokens stored in config file - rotate if exposed
+- Container runs on host loopback (127.0.0.1) for security
