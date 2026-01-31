@@ -1,3 +1,9 @@
+---
+name: restart-moltbot
+description: Restart Moltbot
+disable-model-invocation: true
+---
+
 # Restart Moltbot
 
 Start or restart the Moltbot container and gateway service.

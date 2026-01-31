@@ -1,3 +1,9 @@
+---
+name: open-moltbot-ui
+description: Open Moltbot UI
+disable-model-invocation: true
+---
+
 # Open Moltbot UI
 
 Open the Moltbot Control UI in the default browser with authentication token.
