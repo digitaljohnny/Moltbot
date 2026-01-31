@@ -22,6 +22,55 @@ const OperationDetailModal: React.FC<OperationDetailModalProps> = ({ operation, 
     return new Date(ts).toLocaleString();
   };
 
+  // Extract API calls from metadata or steps
+  const getApiCalls = () => {
+    const apiCalls: Array<{
+      method?: string;
+      url?: string;
+      request?: any;
+      response?: any;
+      statusCode?: number;
+      timestamp?: string;
+      stepName?: string;
+    }> = [];
+
+    // Check metadata for API calls
+    if (operation.metadata?.apiCalls) {
+      apiCalls.push(...(Array.isArray(operation.metadata.apiCalls) ? operation.metadata.apiCalls : [operation.metadata.apiCalls]));
+    }
+
+    // Check steps for API calls
+    operation.steps.forEach(step => {
+      if (step.metadata?.apiCall) {
+        apiCalls.push({ ...step.metadata.apiCall, stepName: step.name });
+      }
+      if (step.metadata?.apiCalls) {
+        const calls = Array.isArray(step.metadata.apiCalls) ? step.metadata.apiCalls : [step.metadata.apiCalls];
+        calls.forEach(call => {
+          apiCalls.push({ ...call, stepName: step.name });
+        });
+      }
+    });
+
+    // If no structured API calls, check for request/response in metadata
+    if (apiCalls.length === 0 && operation.metadata) {
+      if (operation.metadata.request || operation.metadata.response) {
+        apiCalls.push({
+          method: operation.metadata.method || 'GET',
+          url: operation.metadata.url || operation.metadata.endpoint,
+          request: operation.metadata.request,
+          response: operation.metadata.response,
+          statusCode: operation.metadata.statusCode,
+          timestamp: operation.metadata.timestamp,
+        });
+      }
+    }
+
+    return apiCalls;
+  };
+
+  const apiCalls = getApiCalls();
+
   return (
     <div className="operation-modal-overlay" onClick={onClose}>
       <div className="operation-modal" onClick={(e) => e.stopPropagation()}>
@@ -206,6 +255,65 @@ const OperationDetailModal: React.FC<OperationDetailModalProps> = ({ operation, 
                     </ul>
                   </div>
                 )}
+              </div>
+            </div>
+          )}
+
+          {/* API Calls */}
+          {apiCalls.length > 0 && (
+            <div className="operation-modal-section">
+              <h3 className="operation-modal-section-title">API Calls ({apiCalls.length})</h3>
+              <div className="operation-modal-api-calls">
+                {apiCalls.map((apiCall, idx) => (
+                  <div key={idx} className="operation-modal-api-call">
+                    <div className="operation-modal-api-header">
+                      <div className="operation-modal-api-header-left">
+                        <span className="operation-modal-api-method">
+                          {apiCall.method || 'REQUEST'}
+                        </span>
+                        {apiCall.url && (
+                          <span className="operation-modal-api-url">{apiCall.url}</span>
+                        )}
+                        {apiCall.statusCode && (
+                          <span className={`operation-modal-api-status operation-modal-api-status-${Math.floor(apiCall.statusCode / 100)}xx`}>
+                            {apiCall.statusCode}
+                          </span>
+                        )}
+                      </div>
+                      {apiCall.stepName && (
+                        <span className="operation-modal-api-step">Step: {apiCall.stepName}</span>
+                      )}
+                    </div>
+                    
+                    {apiCall.request && (
+                      <div className="operation-modal-api-section">
+                        <div className="operation-modal-api-section-title">Request</div>
+                        <pre className="operation-modal-json">
+                          {typeof apiCall.request === 'string' 
+                            ? apiCall.request 
+                            : JSON.stringify(apiCall.request, null, 2)}
+                        </pre>
+                      </div>
+                    )}
+                    
+                    {apiCall.response && (
+                      <div className="operation-modal-api-section">
+                        <div className="operation-modal-api-section-title">Response</div>
+                        <pre className="operation-modal-json">
+                          {typeof apiCall.response === 'string' 
+                            ? apiCall.response 
+                            : JSON.stringify(apiCall.response, null, 2)}
+                        </pre>
+                      </div>
+                    )}
+                    
+                    {apiCall.timestamp && (
+                      <div className="operation-modal-api-timestamp">
+                        {formatTimestamp(apiCall.timestamp)}
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
           )}

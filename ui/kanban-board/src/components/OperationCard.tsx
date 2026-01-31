@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Operation, OperationStatus } from '../types/operation';
 import './OperationCard.css';
 
@@ -8,6 +8,7 @@ interface OperationCardProps {
 }
 
 const OperationCard: React.FC<OperationCardProps> = ({ operation, onClick }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
   const formatDuration = (ms?: number): string => {
     if (!ms) return '—';
     if (ms < 1000) return `${ms}ms`;
@@ -43,22 +44,91 @@ const OperationCard: React.FC<OperationCardProps> = ({ operation, onClick }) => 
   const statusColor = getStatusColor(operation.status);
   const progress = getProgressPercentage();
 
+  const handleCardClick = (e: React.MouseEvent) => {
+    // Don't trigger modal if clicking expand button
+    if ((e.target as HTMLElement).closest('.operation-card-expand-btn')) {
+      return;
+    }
+    onClick?.(operation);
+  };
+
+  const handleExpandToggle = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsExpanded(!isExpanded);
+  };
+
+  // Extract API calls from metadata or steps
+  const getApiCalls = () => {
+    const apiCalls: Array<{
+      method?: string;
+      url?: string;
+      request?: any;
+      response?: any;
+      statusCode?: number;
+      timestamp?: string;
+    }> = [];
+
+    // Check metadata for API calls
+    if (operation.metadata?.apiCalls) {
+      apiCalls.push(...(Array.isArray(operation.metadata.apiCalls) ? operation.metadata.apiCalls : [operation.metadata.apiCalls]));
+    }
+
+    // Check steps for API calls
+    operation.steps.forEach(step => {
+      if (step.metadata?.apiCall) {
+        apiCalls.push(step.metadata.apiCall);
+      }
+      if (step.metadata?.apiCalls) {
+        apiCalls.push(...(Array.isArray(step.metadata.apiCalls) ? step.metadata.apiCalls : [step.metadata.apiCalls]));
+      }
+    });
+
+    // If no structured API calls, check for request/response in metadata
+    if (apiCalls.length === 0 && operation.metadata) {
+      if (operation.metadata.request || operation.metadata.response) {
+        apiCalls.push({
+          method: operation.metadata.method || 'GET',
+          url: operation.metadata.url || operation.metadata.endpoint,
+          request: operation.metadata.request,
+          response: operation.metadata.response,
+          statusCode: operation.metadata.statusCode,
+          timestamp: operation.metadata.timestamp,
+        });
+      }
+    }
+
+    return apiCalls;
+  };
+
+  const apiCalls = getApiCalls();
+
   return (
     <div 
-      className="operation-card" 
-      onClick={() => onClick?.(operation)}
+      className={`operation-card ${isExpanded ? 'operation-card-expanded' : ''}`}
+      onClick={handleCardClick}
       style={{ borderLeftColor: statusColor }}
     >
       {/* Header */}
       <div className="operation-card-header">
         <div className="operation-card-title-row">
           <h3 className="operation-card-title">{operation.name}</h3>
-          <span 
-            className="operation-card-status-badge"
-            style={{ backgroundColor: statusColor }}
-          >
-            {operation.status.replace('_', ' ')}
-          </span>
+          <div className="operation-card-header-right">
+            {apiCalls.length > 0 && (
+              <button
+                className="operation-card-expand-btn"
+                onClick={handleExpandToggle}
+                title={isExpanded ? 'Collapse' : 'Expand to view API calls'}
+              >
+                {isExpanded ? '▼' : '▶'}
+              </button>
+            )}
+            <span 
+              className="operation-card-status-badge"
+              style={{ backgroundColor: statusColor }}
+            >
+              {operation.status.replace('_', ' ')}
+            </span>
+          </div>
         </div>
         {operation.skillName && (
           <div className="operation-card-skill">
@@ -165,6 +235,58 @@ const OperationCard: React.FC<OperationCardProps> = ({ operation, onClick }) => 
           <span className="operation-card-error-text">
             {operation.disposition.error}
           </span>
+        </div>
+      )}
+
+      {/* Expanded API Calls Section */}
+      {isExpanded && apiCalls.length > 0 && (
+        <div className="operation-card-expanded-content">
+          <h4 className="operation-card-api-title">API Calls ({apiCalls.length})</h4>
+          {apiCalls.map((apiCall, idx) => (
+            <div key={idx} className="operation-card-api-call">
+              <div className="operation-card-api-header">
+                <span className="operation-card-api-method">
+                  {apiCall.method || 'REQUEST'}
+                </span>
+                {apiCall.url && (
+                  <span className="operation-card-api-url">{apiCall.url}</span>
+                )}
+                {apiCall.statusCode && (
+                  <span className={`operation-card-api-status operation-card-api-status-${Math.floor(apiCall.statusCode / 100)}xx`}>
+                    {apiCall.statusCode}
+                  </span>
+                )}
+              </div>
+              
+              {apiCall.request && (
+                <div className="operation-card-api-section">
+                  <div className="operation-card-api-section-title">Request</div>
+                  <pre className="operation-card-api-json">
+                    {typeof apiCall.request === 'string' 
+                      ? apiCall.request 
+                      : JSON.stringify(apiCall.request, null, 2)}
+                  </pre>
+                </div>
+              )}
+              
+              {apiCall.response && (
+                <div className="operation-card-api-section">
+                  <div className="operation-card-api-section-title">Response</div>
+                  <pre className="operation-card-api-json">
+                    {typeof apiCall.response === 'string' 
+                      ? apiCall.response 
+                      : JSON.stringify(apiCall.response, null, 2)}
+                  </pre>
+                </div>
+              )}
+              
+              {apiCall.timestamp && (
+                <div className="operation-card-api-timestamp">
+                  {new Date(apiCall.timestamp).toLocaleString()}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       )}
 

@@ -1,14 +1,10 @@
 .kanban-column {
-  flex: 1;
-  min-width: 320px;
-  max-width: 400px;
+  width: 100%;
   background: #f8fafc;
   border-radius: 8px;
   padding: 16px;
-  margin: 0 8px;
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .kanban-column-header {

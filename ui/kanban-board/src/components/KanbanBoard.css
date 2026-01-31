@@ -63,14 +63,15 @@
 .kanban-board {
   flex: 1;
   display: flex;
-  overflow-x: auto;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding: 24px;
-  gap: 16px;
-  overflow-y: hidden;
+  gap: 24px;
 }
 
 .kanban-board::-webkit-scrollbar {
-  height: 8px;
+  width: 8px;
 }
 
 .kanban-board::-webkit-scrollbar-track {
@@ -84,17 +85,4 @@
 
 .kanban-board::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
-}
-
-@media (max-width: 768px) {
-  .kanban-board {
-    flex-direction: column;
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-
-  .kanban-column {
-    max-width: 100%;
-    margin: 0 0 16px 0;
-  }
 }
