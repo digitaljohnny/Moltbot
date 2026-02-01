@@ -1,0 +1,37 @@
+services:
+  courses-db:
+    platform: linux/arm64
+    build:
+      context: ./courses-db
+    container_name: courses-db
+    environment:
+      POSTGRES_DB: courses
+      POSTGRES_USER: courses
+      POSTGRES_PASSWORD: courses
+    ports:
+      - "5433:5432"
+    volumes:
+      - courses_db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U courses -d courses"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  course-ingest:
+    build:
+      context: ./course-ingest
+    container_name: course-ingest
+    depends_on:
+      courses-db:
+        condition: service_healthy
+    environment:
+      PORT: 8080
+      DATABASE_URL: postgres://courses:courses@courses-db:5432/courses
+      AUTH_TOKEN: 8-iVeTs0dZWb_Hw3PtzXV14wJlEkw3t29BzJw52Qc5Y
+      VIEWER_AUTH: ${VIEWER_AUTH:-admin:secret123}  # Optional: user:pass for basic auth on viewer (e.g., "admin:secret")
+      LOG_LEVEL: info
+    ports:
+      - "8088:8080" # host:container
+
+volumes:
+  courses_db_data:

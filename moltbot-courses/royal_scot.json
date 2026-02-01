@@ -1,0 +1,220 @@
+{
+  "course": {
+    "id": "course_royal_scot_lansing_mi",
+    "name": "Royal Scot Golf & Bowl",
+    "description": "Royal Scot Golf & Bowl in Lansing, Michigan offers a 27-hole championship golf facility with maintained fairways/greens and hazards including sand traps, water hazards, and mature trees. Tee times are handled by phone through the Golf Pro Shop; the property also includes a golf pro shop, driving range/range balls, and Trackman golf simulators, plus alternative FootGolf.",
+    "domain": "royalscot.net",
+    "phone": "+1-517-321-6220",
+    "email": "info@royalscot.net",
+    "city": "Lansing",
+    "state": "MI",
+    "geoLat": 42.7474332,
+    "geoLng": -84.5576018,
+    "timezone": "America/Detroit",
+    "status": "active",
+    "moderationStatus": "approved",
+    "sourceTags": ["web_research"],
+    "lastVerifiedAt": "2026-02-01T05:44:30.000Z",
+    "address": {
+      "line1": "4722 W Grand River Ave",
+      "line2": null,
+      "city": "Lansing",
+      "state": "MI",
+      "postalCode": "48906",
+      "country": "US",
+      "formatted": "4722 W Grand River Ave, Lansing, MI 48906, USA"
+    },
+    "provenance": {
+      "sources": [
+        {
+          "sourceTag": "web_research",
+          "url": "https://royalscot.net/contact/",
+          "fetchedAt": "2026-02-01T05:42:59.743Z",
+          "method": "lightweight_fetch",
+          "confidence": 0.9
+        },
+        {
+          "sourceTag": "web_research",
+          "url": "https://royalscot.net/",
+          "fetchedAt": "2026-02-01T05:42:57.443Z",
+          "method": "lightweight_fetch",
+          "confidence": 0.75
+        },
+        {
+          "sourceTag": "web_research",
+          "url": "https://royalscot.net/golf/",
+          "fetchedAt": "2026-02-01T05:42:52.538Z",
+          "method": "lightweight_fetch",
+          "confidence": 0.75
+        },
+        {
+          "sourceTag": "web_research",
+          "url": "https://www.golflink.com/golf-courses/mi/lansing/royal-scot-golf-course-5645",
+          "fetchedAt": "2026-02-01T05:44:06.259Z",
+          "method": "lightweight_fetch",
+          "confidence": 0.65
+        },
+        {
+          "sourceTag": "web_research",
+          "url": "https://nominatim.openstreetmap.org/search?q=4722+W+Grand+River+Ave+Lansing%2C+MI+48906&format=json&limit=1",
+          "fetchedAt": "2026-02-01T05:43:05.000Z",
+          "method": "geocode",
+          "confidence": 0.6
+        }
+      ]
+    },
+    "playability": {
+      "holes": 27,
+      "walkingAllowed": null,
+      "bookingRules": { "advanceDays": null },
+      "policies": { "dressCode": null }
+    },
+    "pricingMeta": {
+      "currency": "USD",
+      "greenFeeRange": { "min": 20, "max": 65 },
+      "cartFeeRange": null
+    },
+    "media": {
+      "heroImageUrl": "https://royalscot.net/wp-content/uploads/2023/07/use5.jpg",
+      "logoUrl": null,
+      "gallery": [],
+      "scorecard": { "pdfUrl": null }
+    }
+  },
+  "teeSets": [
+    {
+      "id": "tee_royal_scot_1_blue",
+      "courseId": "course_royal_scot_lansing_mi",
+      "color": "Blue",
+      "name": null,
+      "rating": 71.9,
+      "slope": 125,
+      "par": 71,
+      "units": "yards"
+    },
+    {
+      "id": "tee_royal_scot_1_white",
+      "courseId": "course_royal_scot_lansing_mi",
+      "color": "White",
+      "name": null,
+      "rating": 70.3,
+      "slope": 121,
+      "par": 71,
+      "units": "yards"
+    },
+    {
+      "id": "tee_royal_scot_1_yellow",
+      "courseId": "course_royal_scot_lansing_mi",
+      "color": "Yellow",
+      "name": null,
+      "rating": 67.9,
+      "slope": 115,
+      "par": 71,
+      "units": "yards"
+    },
+    {
+      "id": "tee_royal_scot_1_red",
+      "courseId": "course_royal_scot_lansing_mi",
+      "color": "Red",
+      "name": "Red (L)",
+      "rating": 68.8,
+      "slope": 118,
+      "par": 71,
+      "units": "yards"
+    }
+  ],
+  "holes": [
+    { "id": "h1_blue", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_blue", "holeNumber": 1, "par": 3, "handicapIndex": null, "distance": 155, "hazards": [] },
+    { "id": "h2_blue", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_blue", "holeNumber": 2, "par": 4, "handicapIndex": null, "distance": 423, "hazards": [] },
+    { "id": "h3_blue", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_blue", "holeNumber": 3, "par": 3, "handicapIndex": null, "distance": 206, "hazards": [] },
+    { "id": "h4_blue", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_blue", "holeNumber": 4, "par": 5, "handicapIndex": null, "distance": 491, "hazards": [] },
+    { "id": "h5_blue", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_blue", "holeNumber": 5, "par": 4, "handicapIndex": null, "distance": 440, "hazards": [] },
+    { "id": "h6_blue", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_blue", "holeNumber": 6, "par": 4, "handicapIndex": null, "distance": 432, "hazards": [] },
+    { "id": "h7_blue", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_blue", "holeNumber": 7, "par": 4, "handicapIndex": null, "distance": 373, "hazards": [] },
+    { "id": "h8_blue", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_blue", "holeNumber": 8, "par": 5, "handicapIndex": null, "distance": 543, "hazards": [] },
+    { "id": "h9_blue", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_blue", "holeNumber": 9, "par": 3, "handicapIndex": null, "distance": 163, "hazards": [] },
+    { "id": "h10_blue", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_blue", "holeNumber": 10, "par": 5, "handicapIndex": null, "distance": 552, "hazards": [] },
+    { "id": "h11_blue", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_blue", "holeNumber": 11, "par": 4, "handicapIndex": null, "distance": 349, "hazards": [] },
+    { "id": "h12_blue", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_blue", "holeNumber": 12, "par": 3, "handicapIndex": null, "distance": 138, "hazards": [] },
+    { "id": "h13_blue", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_blue", "holeNumber": 13, "par": 4, "handicapIndex": null, "distance": 446, "hazards": [] },
+    { "id": "h14_blue", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_blue", "holeNumber": 14, "par": 4, "handicapIndex": null, "distance": 368, "hazards": [] },
+    { "id": "h15_blue", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_blue", "holeNumber": 15, "par": 5, "handicapIndex": null, "distance": 484, "hazards": [] },
+    { "id": "h16_blue", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_blue", "holeNumber": 16, "par": 4, "handicapIndex": null, "distance": 387, "hazards": [] },
+    { "id": "h17_blue", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_blue", "holeNumber": 17, "par": 3, "handicapIndex": null, "distance": 205, "hazards": [] },
+    { "id": "h18_blue", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_blue", "holeNumber": 18, "par": 4, "handicapIndex": null, "distance": 372, "hazards": [] },
+
+    { "id": "h1_white", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_white", "holeNumber": 1, "par": 3, "handicapIndex": null, "distance": 144, "hazards": [] },
+    { "id": "h2_white", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_white", "holeNumber": 2, "par": 4, "handicapIndex": null, "distance": 392, "hazards": [] },
+    { "id": "h3_white", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_white", "holeNumber": 3, "par": 3, "handicapIndex": null, "distance": 191, "hazards": [] },
+    { "id": "h4_white", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_white", "holeNumber": 4, "par": 5, "handicapIndex": null, "distance": 464, "hazards": [] },
+    { "id": "h5_white", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_white", "holeNumber": 5, "par": 4, "handicapIndex": null, "distance": 409, "hazards": [] },
+    { "id": "h6_white", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_white", "holeNumber": 6, "par": 4, "handicapIndex": null, "distance": 417, "hazards": [] },
+    { "id": "h7_white", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_white", "holeNumber": 7, "par": 4, "handicapIndex": null, "distance": 359, "hazards": [] },
+    { "id": "h8_white", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_white", "holeNumber": 8, "par": 5, "handicapIndex": null, "distance": 526, "hazards": [] },
+    { "id": "h9_white", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_white", "holeNumber": 9, "par": 3, "handicapIndex": null, "distance": 140, "hazards": [] },
+    { "id": "h10_white", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_white", "holeNumber": 10, "par": 5, "handicapIndex": null, "distance": 493, "hazards": [] },
+    { "id": "h11_white", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_white", "holeNumber": 11, "par": 4, "handicapIndex": null, "distance": 320, "hazards": [] },
+    { "id": "h12_white", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_white", "holeNumber": 12, "par": 3, "handicapIndex": null, "distance": 128, "hazards": [] },
+    { "id": "h13_white", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_white", "holeNumber": 13, "par": 4, "handicapIndex": null, "distance": 430, "hazards": [] },
+    { "id": "h14_white", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_white", "holeNumber": 14, "par": 4, "handicapIndex": null, "distance": 355, "hazards": [] },
+    { "id": "h15_white", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_white", "holeNumber": 15, "par": 5, "handicapIndex": null, "distance": 465, "hazards": [] },
+    { "id": "h16_white", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_white", "holeNumber": 16, "par": 4, "handicapIndex": null, "distance": 371, "hazards": [] },
+    { "id": "h17_white", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_white", "holeNumber": 17, "par": 3, "handicapIndex": null, "distance": 174, "hazards": [] },
+    { "id": "h18_white", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_white", "holeNumber": 18, "par": 4, "handicapIndex": null, "distance": 340, "hazards": [] },
+
+    { "id": "h1_yellow", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_yellow", "holeNumber": 1, "par": 3, "handicapIndex": null, "distance": 127, "hazards": [] },
+    { "id": "h2_yellow", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_yellow", "holeNumber": 2, "par": 4, "handicapIndex": null, "distance": 373, "hazards": [] },
+    { "id": "h3_yellow", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_yellow", "holeNumber": 3, "par": 3, "handicapIndex": null, "distance": 162, "hazards": [] },
+    { "id": "h4_yellow", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_yellow", "holeNumber": 4, "par": 5, "handicapIndex": null, "distance": 414, "hazards": [] },
+    { "id": "h5_yellow", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_yellow", "holeNumber": 5, "par": 4, "handicapIndex": null, "distance": 372, "hazards": [] },
+    { "id": "h6_yellow", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_yellow", "holeNumber": 6, "par": 4, "handicapIndex": null, "distance": 327, "hazards": [] },
+    { "id": "h7_yellow", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_yellow", "holeNumber": 7, "par": 4, "handicapIndex": null, "distance": 310, "hazards": [] },
+    { "id": "h8_yellow", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_yellow", "holeNumber": 8, "par": 5, "handicapIndex": null, "distance": 426, "hazards": [] },
+    { "id": "h9_yellow", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_yellow", "holeNumber": 9, "par": 3, "handicapIndex": null, "distance": 133, "hazards": [] },
+    { "id": "h10_yellow", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_yellow", "holeNumber": 10, "par": 5, "handicapIndex": null, "distance": 455, "hazards": [] },
+    { "id": "h11_yellow", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_yellow", "holeNumber": 11, "par": 4, "handicapIndex": null, "distance": 291, "hazards": [] },
+    { "id": "h12_yellow", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_yellow", "holeNumber": 12, "par": 3, "handicapIndex": null, "distance": 124, "hazards": [] },
+    { "id": "h13_yellow", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_yellow", "holeNumber": 13, "par": 4, "handicapIndex": null, "distance": 344, "hazards": [] },
+    { "id": "h14_yellow", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_yellow", "holeNumber": 14, "par": 4, "handicapIndex": null, "distance": 340, "hazards": [] },
+    { "id": "h15_yellow", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_yellow", "holeNumber": 15, "par": 5, "handicapIndex": null, "distance": 446, "hazards": [] },
+    { "id": "h16_yellow", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_yellow", "holeNumber": 16, "par": 4, "handicapIndex": null, "distance": 313, "hazards": [] },
+    { "id": "h17_yellow", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_yellow", "holeNumber": 17, "par": 3, "handicapIndex": null, "distance": 144, "hazards": [] },
+    { "id": "h18_yellow", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_yellow", "holeNumber": 18, "par": 4, "handicapIndex": null, "distance": 324, "hazards": [] },
+
+    { "id": "h1_red", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_red", "holeNumber": 1, "par": 3, "handicapIndex": null, "distance": 108, "hazards": [] },
+    { "id": "h2_red", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_red", "holeNumber": 2, "par": 4, "handicapIndex": null, "distance": 325, "hazards": [] },
+    { "id": "h3_red", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_red", "holeNumber": 3, "par": 3, "handicapIndex": null, "distance": 134, "hazards": [] },
+    { "id": "h4_red", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_red", "holeNumber": 4, "par": 5, "handicapIndex": null, "distance": 362, "hazards": [] },
+    { "id": "h5_red", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_red", "holeNumber": 5, "par": 4, "handicapIndex": null, "distance": 328, "hazards": [] },
+    { "id": "h6_red", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_red", "holeNumber": 6, "par": 4, "handicapIndex": null, "distance": 327, "hazards": [] },
+    { "id": "h7_red", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_red", "holeNumber": 7, "par": 4, "handicapIndex": null, "distance": 310, "hazards": [] },
+    { "id": "h8_red", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_red", "holeNumber": 8, "par": 5, "handicapIndex": null, "distance": 426, "hazards": [] },
+    { "id": "h9_red", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_red", "holeNumber": 9, "par": 3, "handicapIndex": null, "distance": 85, "hazards": [] },
+    { "id": "h10_red", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_red", "holeNumber": 10, "par": 5, "handicapIndex": null, "distance": 393, "hazards": [] },
+    { "id": "h11_red", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_red", "holeNumber": 11, "par": 4, "handicapIndex": null, "distance": 240, "hazards": [] },
+    { "id": "h12_red", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_red", "holeNumber": 12, "par": 3, "handicapIndex": null, "distance": 124, "hazards": [] },
+    { "id": "h13_red", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_red", "holeNumber": 13, "par": 4, "handicapIndex": null, "distance": 344, "hazards": [] },
+    { "id": "h14_red", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_red", "holeNumber": 14, "par": 4, "handicapIndex": null, "distance": 295, "hazards": [] },
+    { "id": "h15_red", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_red", "holeNumber": 15, "par": 5, "handicapIndex": null, "distance": 341, "hazards": [] },
+    { "id": "h16_red", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_red", "holeNumber": 16, "par": 4, "handicapIndex": null, "distance": 246, "hazards": [] },
+    { "id": "h17_red", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_red", "holeNumber": 17, "par": 3, "handicapIndex": null, "distance": 108, "hazards": [] },
+    { "id": "h18_red", "courseId": "course_royal_scot_lansing_mi", "teeSetId": "tee_royal_scot_1_red", "holeNumber": 18, "par": 4, "handicapIndex": null, "distance": 263, "hazards": [] }
+  ],
+  "amenities": [
+    { "id": "am_pro_shop", "name": "Golf Pro Shop", "category": "golf" },
+    { "id": "am_driving_range", "name": "Driving Range", "category": "practice" },
+    { "id": "am_range_balls", "name": "Range Balls", "category": "practice" },
+    { "id": "am_simulators", "name": "Trackman Golf Simulators", "category": "technology" },
+    { "id": "am_footgolf", "name": "FootGolf", "category": "alternative_golf" },
+    { "id": "am_event_space", "name": "Outings / Banquet & Event Space", "category": "events" }
+  ],
+  "courseTypes": [
+    { "groupKey": "hole_count", "typeKey": "27" },
+    { "groupKey": "length_class", "typeKey": "regulation" },
+    { "groupKey": "access", "typeKey": "semi-private" },
+    { "groupKey": "purpose", "typeKey": "championship" },
+    { "groupKey": "land_type", "typeKey": "parkland" },
+    { "groupKey": "tech", "typeKey": "simulator" },
+    { "groupKey": "alternative", "typeKey": "footgolf" }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "course": {
+    "id": "course_hawk_hollow_bath_mi",
+    "name": "Hawk Hollow Golf Course",
+    "description": "Hawk Hollow Golf Course is a public golf facility in Bath, Michigan. GolfLink lists the course as designed by Jerry Matthews, ASGCA and opened in 1996, with three 9-hole loops labeled Hawk Hollow 1-9, 10-18, and 19-27 (27 holes total).",
+    "domain": "hawkhollow.com",
+    "phone": "+1-517-641-4295",
+    "email": null,
+    "city": "Bath",
+    "state": "MI",
+    "geoLat": 42.7958914,
+    "geoLng": -84.4705462,
+    "timezone": "America/Detroit",
+    "status": "active",
+    "moderationStatus": "approved",
+    "sourceTags": ["web_research"],
+    "lastVerifiedAt": "2026-02-01T05:43:18.603Z",
+    "address": {
+      "line1": "15101 Chandler Road",
+      "line2": null,
+      "city": "Bath",
+      "state": "MI",
+      "postalCode": "48808",
+      "country": "US",
+      "formatted": "15101 Chandler Road, Bath, MI 48808, United States"
+    },
+    "provenance": {
+      "sources": [
+        {
+          "sourceTag": "web_research",
+          "url": "https://nominatim.openstreetmap.org/search?q=Hawk%20Hollow%20Golf%20Course%20Bath%20MI&format=jsonv2&limit=5",
+          "fetchedAt": "2026-02-01T05:42:33Z",
+          "method": "curl",
+          "confidence": 0.85
+        },
+        {
+          "sourceTag": "web_research",
+          "url": "https://www.openstreetmap.org/api/0.6/way/293751876",
+          "fetchedAt": "2026-02-01T05:43:02Z",
+          "method": "curl",
+          "confidence": 0.9
+        },
+        {
+          "sourceTag": "web_research",
+          "url": "https://www.golflink.com/golf-courses/mi/bath/hawk-hollow-golf-course-15610",
+          "fetchedAt": "2026-02-01T05:42:58.369Z",
+          "method": "web_fetch",
+          "confidence": 0.75
+        },
+        {
+          "sourceTag": "web_research",
+          "url": "https://www.golflink.com/golf-courses/mi/bath/hawk-hollow-golf-course",
+          "fetchedAt": "2026-02-01T05:42:43.456Z",
+          "method": "web_fetch",
+          "confidence": 0.7
+        },
+        {
+          "sourceTag": "web_research",
+          "url": "https://www.golflink.com/golf-courses/mi/bath/hawk-hollow-golf-course-15611",
+          "fetchedAt": "2026-02-01T05:43:00.567Z",
+          "method": "web_fetch",
+          "confidence": 0.75
+        },
+        {
+          "sourceTag": "web_research",
+          "url": "https://www.hawkhollow.com/hawk_about.php",
+          "fetchedAt": "2026-02-01T05:43:18.603Z",
+          "method": "web_fetch",
+          "confidence": 0.4
+        }
+      ]
+    },
+    "playability": {
+      "holes": 27,
+      "walkingAllowed": null,
+      "bookingRules": { "advanceDays": null },
+      "policies": { "dressCode": null }
+    },
+    "pricingMeta": {
+      "currency": "USD",
+      "greenFeeRange": { "min": 105, "max": 105 },
+      "cartFeeRange": { "min": null, "max": null }
+    },
+    "media": {
+      "heroImageUrl": null,
+      "logoUrl": null,
+      "gallery": [],
+      "scorecard": { "pdfUrl": null }
+    }
+  },
+  "teeSets": [],
+  "holes": [],
+  "amenities": [
+    {
+      "id": "am_hawk_hollow_driving_range",
+      "name": "Driving range",
+      "category": "practice"
+    }
+  ],
+  "courseTypes": [
+    { "groupKey": "hole_count", "typeKey": "27" },
+    { "groupKey": "length_class", "typeKey": "regulation" },
+    { "groupKey": "access", "typeKey": "public" },
+    { "groupKey": "tech", "typeKey": "none" },
+    { "groupKey": "land_type", "typeKey": "parkland" }
+  ]
+}
